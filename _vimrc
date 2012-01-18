@@ -75,4 +75,15 @@ inoremap <leader>l </<C-x><C-o>
 "expand tag
 inoremap <C-Space> <Esc>vbc<<Esc>pa></<Esc>pa><Esc>bba
 
+"alt buffer
 nnoremap <leader># :b#<CR>
+
+"indening
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+nnoremap j gj
+nnoremap k gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
