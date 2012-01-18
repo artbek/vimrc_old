@@ -7,7 +7,13 @@ set guioptions-=T
 "let g:screen_size_restore_pos = 1
 "let g:screen_size_by_vim_instance = 1
 
-set guifont=Consolas
+if has("unix")
+	"linux"
+	set dir=/home/artbek/vimtmp
+else
+	set guifont=Consolas
+	set dir=c:\\vimtmp
+endif	
 
 set number
 syntax on
@@ -46,7 +52,6 @@ nnoremap <F8> :noh<CR>
 "new line in normal mode
 nnoremap <CR> o<Esc>
 
-set dir=c:\\vimtmp
 set statusline=%m\ %t
 
 "paste from clipboard
