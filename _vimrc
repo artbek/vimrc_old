@@ -36,7 +36,12 @@ set smartcase
 nnoremap ; :
 
 "vimrc editing
-nnoremap <F11> :tabnew $MYVIMRC<CR>
+if has("unix")
+	nnoremap <F11> :tabnew ~/.vim/vimrc/_vimrc<CR>
+else
+	nnoremap <F11> :tabnew ~/vimfiles/vimrc/_vimrc<CR>
+endif
+
 nnoremap <F12> :source $MYVIMRC<CR>
 
 nnoremap <F9> :call Bbuf2()<CR>  
@@ -95,3 +100,4 @@ inoremap <Up> <C-o>gk
 vnoremap <C-p> c<p><C-o>p</p><Esc>
 vnoremap <C-b> c<strong><C-o>P</strong><Esc>
 inoremap <C-CR> <br />
+
