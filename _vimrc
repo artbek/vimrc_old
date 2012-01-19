@@ -61,6 +61,7 @@ set statusline=%m\ %t
 
 "paste from clipboard
 inoremap <C-v> <C-r>*
+nnoremap <C-v> "+p
 
 "move character left/right
 nnoremap <S-Right> xp
@@ -97,7 +98,9 @@ nnoremap k gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-vnoremap <C-p> c<p><C-o>p</p><Esc>
+vnoremap <C-p> c<p><C-o>gp</p><Esc>o<Esc>
 vnoremap <C-b> c<strong><C-o>P</strong><Esc>
 inoremap <C-CR> <br />
+nnoremap <leader>a viWc<a href="<C-o>p"><C-o>p</a><Esc>
 
+vnoremap <leader>s y:%s/<C-r>0/
