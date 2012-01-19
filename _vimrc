@@ -92,3 +92,6 @@ nnoremap k gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+vnoremap <C-p> c<p><C-o>p</p><Esc>
+vnoremap <C-b> c<strong><C-o>P</strong><Esc>
+inoremap <C-CR> <br />
