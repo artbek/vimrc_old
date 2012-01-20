@@ -81,7 +81,7 @@ nnoremap <leader>c ^i//<Esc>
 nnoremap <leader>d ^xx
 
 "close xml tags
-inoremap <leader>l </<C-x><C-o>
+inoremap <leader>l </<C-x><C-o><Esc>
 
 "expand tag
 inoremap <C-Space> <Esc>vbc<<Esc>pa></<Esc>pa><Esc>bba
@@ -102,5 +102,38 @@ vnoremap <C-p> c<p><C-o>gp</p><Esc>o<Esc>
 vnoremap <C-b> c<strong><C-o>P</strong><Esc>
 inoremap <C-CR> <br />
 nnoremap <leader>a viWc<a href="<C-o>p"><C-o>p</a><Esc>
+nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
 
 vnoremap <leader>s y:%s/<C-r>0/
+
+
+function! HiTag()
+	let l:start_tag = []
+	execute("normal! F<")
+	call add(start_tag, getpos(".")[2])
+	call add(start_tag, getpos(".")[1])
+
+	execute("normal! f>")
+	call add(start_tag, getpos(".")[2])
+	call add(start_tag, getpos(".")[1])
+
+
+	let l:end_tag = []
+	execute("normal! vat")
+
+
+	execute("normal! F<")
+	call add(end_tag, getpos(".")[2])
+	call add(end_tag, getpos(".")[1])
+
+	execute("normal! f>")
+	call add(end_tag, getpos(".")[2])
+	call add(end_tag, getpos(".")[1])
+
+	echo start_tag
+	echo end_tag
+
+	call clearmatches()
+	call matchadd("Comment", "\\%" . start_tag[1] . "l")
+
+endfunction
