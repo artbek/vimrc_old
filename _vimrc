@@ -108,6 +108,10 @@ vnoremap <leader>s y:%s/<C-r>0/
 
 
 function! HiTag()
+	" save cursor position
+	let l:saved_cursor_pos = getpos(".")
+
+	" 
 	let l:start_tag = []
 	execute("normal! F<")
 	call add(start_tag, getpos(".")[2])
@@ -119,8 +123,7 @@ function! HiTag()
 
 
 	let l:end_tag = []
-	execute("normal! vat")
-
+	execute("normal! vat\e")
 
 	execute("normal! F<")
 	call add(end_tag, getpos(".")[2])
@@ -130,10 +133,16 @@ function! HiTag()
 	call add(end_tag, getpos(".")[2])
 	call add(end_tag, getpos(".")[1])
 
-	echo start_tag
-	echo end_tag
+	"echo start_tag
+	"echo end_tag
 
 	call clearmatches()
-	call matchadd("Comment", "\\%" . start_tag[1] . "l")
+	call matchadd("Comment", "\\%" . start_tag[1] . "l\\%>" . start_tag[0] . "c\\%<" . start_tag[2] . "c")
+	call matchadd("Comment", "\\%" . end_tag[1] . "l\\%>" . end_tag[0] . "c\\%<" . end_tag[2] . "c")
+
+	" restore cursor position
+	call setpos(".", l:saved_cursor_pos)
 
 endfunction
+
+autocmd! CursorMoved *.html call HiTag()
