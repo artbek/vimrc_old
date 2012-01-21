@@ -1,4 +1,4 @@
-filetype plugin on
+filetype plugin indent on
 colorscheme wombat
 
 set guioptions-=T
@@ -85,7 +85,7 @@ nnoremap <leader>c ^i//<Esc>
 nnoremap <leader>d ^xx
 
 "close xml tags
-inoremap <leader>l </<C-x><C-o><Esc>
+inoremap <leader>l </<C-x><C-o>
 
 "expand tag
 inoremap <C-Space> <Esc>vbc<<Esc>pa></<Esc>pa><Esc>bba
@@ -113,4 +113,6 @@ nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
 "search/replace selected
 vnoremap <leader>s y:%s/<C-r>0/
 
+"<li> list
+vnoremap <leader>li :s/\(\s*\)\(.*\)/\1<li>\2<\/li>/g<CR>:noh<CR>
 
