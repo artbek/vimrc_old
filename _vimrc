@@ -21,6 +21,7 @@ syntax on
 set hidden
 
 set cursorline
+set cursorcolumn
 
 set tabstop=4
 set shiftwidth=4
@@ -42,9 +43,11 @@ if has("unix")
 else
 	nnoremap <F11> :tabnew ~/vimfiles/vimrc/_vimrc<CR>
 endif
-
+"reload vimrc
 nnoremap <F12> :source $MYVIMRC<CR>
 
+"my plugins
+nnoremap <F1> :call HiTag()<CR>
 nnoremap <F9> :call Bbuf2()<CR>  
 
 set hlsearch
@@ -94,58 +97,20 @@ nnoremap <leader># :b#<CR>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+"move by visual lines (when word wrapped)
 nnoremap j gj
 nnoremap k gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+"surround selection with common tags
 vnoremap <C-p> c<p><C-o>gp</p><Esc>o<Esc>
 vnoremap <C-b> c<strong><C-o>P</strong><Esc>
 inoremap <C-CR> <br />
 nnoremap <leader>a viWc<a href="<C-o>p"><C-o>p</a><Esc>
 nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
 
+"search/replace selected
 vnoremap <leader>s y:%s/<C-r>0/
 
 
-function! HiTag()
-	" save cursor position
-	let l:saved_cursor_pos = getpos(".")
-
-	let l:start_tag = []
-	execute("normal! yat")
-	"execute("normal! F<")
-	call add(start_tag, getpos(".")[2])
-	call add(start_tag, getpos(".")[1])
-
-	execute("normal! f>")
-	call add(start_tag, getpos(".")[2])
-	call add(start_tag, getpos(".")[1])
-
-
-	let l:end_tag = []
-	execute("normal! vat\e")
-
-	execute("normal! F<")
-	call add(end_tag, getpos(".")[2])
-	call add(end_tag, getpos(".")[1])
-
-	execute("normal! f>")
-	call add(end_tag, getpos(".")[2])
-	call add(end_tag, getpos(".")[1])
-
-	"echo start_tag
-	"echo end_tag
-
-	call clearmatches()
-	highlight TagHi guifg=#ffff00 
-	call matchadd("TagHi", "\\%" . start_tag[1] . "l\\%>" . (start_tag[0]-1) . "c\\%<" . (start_tag[2]+1) . "c")
-	call matchadd("TagHi", "\\%" . end_tag[1] . "l\\%>" . (end_tag[0]-1) . "c\\%<" . (end_tag[2]+1) . "c")
-
-	" restore cursor position
-	call setpos(".", l:saved_cursor_pos)
-
-endfunction
-
-"autocmd! CursorMovedI,InsertEnter *.html call HiTag()
-nnoremap <F1> :call HiTag()<CR>
