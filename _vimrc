@@ -88,7 +88,7 @@ nnoremap <leader>d ^xx
 inoremap <leader>l </<C-x><C-o>
 
 "expand tag
-inoremap <C-Space> <Esc>vbc<<Esc>pa></<Esc>pa><Esc>bba
+inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
 
 "alt buffer
 nnoremap <leader># :b#<CR>
@@ -114,5 +114,8 @@ nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
 vnoremap <leader>s y:%s/<C-r>0/
 
 "<li> list
-vnoremap <leader>li :s/\(\s*\)\(.*\)/\1<li>\2<\/li>/g<CR>:noh<CR>
+vnoremap <leader>li :s/\v(\s*)(.*)/\1<li>\2<\/li>/g<CR>:noh<CR>
+vnoremap <leader>ul :s/\v(\s*)(.*)/\1<li>\2<\/li>/g<CR>:noh<CR>gvc<ul><Esc>pV']>']o</ul><Esc><<
+
+set autochdir
 
