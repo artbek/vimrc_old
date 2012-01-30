@@ -20,8 +20,8 @@ set number
 syntax on
 set hidden
 
-set cursorline
-set cursorcolumn
+set nocursorline
+set nocursorcolumn
 
 set tabstop=4
 set shiftwidth=4
@@ -122,3 +122,4 @@ set autochdir
 nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
 
+nnoremap <leader>z zfa{
