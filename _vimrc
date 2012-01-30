@@ -129,4 +129,3 @@ nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
 
 nnoremap <leader>i :call Bimg()<CR>
-
