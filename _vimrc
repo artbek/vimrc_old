@@ -1,3 +1,4 @@
+let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
 
@@ -20,8 +21,13 @@ set number
 syntax on
 set hidden
 
+<<<<<<< HEAD
 set nocursorline
 set nocursorcolumn
+=======
+"set cursorline
+"set cursorcolumn
+>>>>>>> 45da537381f2ede45e87e706419c51a01020d44e
 
 set tabstop=4
 set shiftwidth=4
@@ -45,6 +51,7 @@ else
 endif
 "reload vimrc
 nnoremap <F12> :source $MYVIMRC<CR>
+
 
 "my plugins
 nnoremap <F1> :call HiTag()<CR>
@@ -105,7 +112,7 @@ inoremap <Up> <C-o>gk
 
 "surround selection with common tags
 vnoremap <C-p> c<p><C-o>gp</p><Esc>o<Esc>
-vnoremap <C-b> c<strong><C-o>P</strong><Esc>
+vmap <C-b> S<strong>
 inoremap <C-CR> <br />
 nnoremap <leader>a viWc<a href="<C-o>p"><C-o>p</a><Esc>
 nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
@@ -122,4 +129,12 @@ set autochdir
 nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
 
+<<<<<<< HEAD
 nnoremap <leader>z zfa{
+=======
+nnoremap <leader>v _vg_
+nnoremap vi_ F_lvf_h
+nnoremap ci_ F_lvf_hc
+
+nnoremap <leader>i :call Bimg()<CR>
+>>>>>>> 45da537381f2ede45e87e706419c51a01020d44e
