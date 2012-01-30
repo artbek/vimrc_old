@@ -21,13 +21,8 @@ set number
 syntax on
 set hidden
 
-<<<<<<< HEAD
 set nocursorline
 set nocursorcolumn
-=======
-"set cursorline
-"set cursorcolumn
->>>>>>> 45da537381f2ede45e87e706419c51a01020d44e
 
 set tabstop=4
 set shiftwidth=4
@@ -129,12 +124,9 @@ set autochdir
 nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
 
-<<<<<<< HEAD
 nnoremap <leader>z zfa{
-=======
 nnoremap <leader>v _vg_
 nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
 
 nnoremap <leader>i :call Bimg()<CR>
->>>>>>> 45da537381f2ede45e87e706419c51a01020d44e
