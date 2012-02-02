@@ -1,4 +1,4 @@
-let g:loaded_matchparen = 1
+"let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
 
@@ -83,11 +83,11 @@ vnoremap <C-Up> :m-2<CR>gv
 let mapleader = ","
 
 "add/remove js comments
-nnoremap <leader>c ^i//<Esc>
-nnoremap <leader>d ^xx
+nnoremap <leader>cj I//<Esc>
+vnoremap <leader>ch c<!--<Esc>gpo--><Esc>
 
 "close xml tags
-inoremap <leader>l </<C-x><C-o>
+inoremap <leader>l </<C-x><C-o><Right>
 
 "expand tag
 inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
@@ -109,8 +109,6 @@ inoremap <Up> <C-o>gk
 vnoremap <C-p> c<p><C-o>gp</p><Esc>o<Esc>
 vmap <C-b> S<strong>
 inoremap <C-CR> <br />
-nnoremap <leader>a viWc<a href="<C-o>p"><C-o>p</a><Esc>
-nnoremap <leader>ah viWc<a href="http://<C-o>P"><C-o>P</a><Esc>
 
 "search/replace selected
 vnoremap <leader>s y:%s/<C-r>0/
@@ -120,6 +118,7 @@ vnoremap <leader>li :s/\v(\s*)(.*)/\1<li>\2<\/li>/g<CR>:noh<CR>
 vnoremap <leader>ul :s/\v(\s*)(.*)/\1<li>\2<\/li>/g<CR>:noh<CR>gvc<ul><Esc>pV']>']o</ul><Esc><<
 
 set autochdir
+set shellslash
 
 nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
@@ -130,3 +129,6 @@ nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
 
 nnoremap <leader>i :call Bimg()<CR>
+
+nnoremap <leader>all ggVG
+vnoremap <leader>cy "+y
