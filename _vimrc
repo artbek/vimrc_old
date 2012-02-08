@@ -36,7 +36,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-nnoremap ; :
+"nnoremap ; :
 
 "vimrc editing
 if has("unix")
@@ -80,7 +80,7 @@ inoremap <C-Up> <Esc>:m-2<CR>gi
 vnoremap <C-Down> :m'>+<CR>gv
 vnoremap <C-Up> :m-2<CR>gv
 
-let mapleader = ","
+"let mapleader = ","
 
 "add/remove js comments
 nnoremap <leader>cj I//<Esc>
