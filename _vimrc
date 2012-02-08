@@ -87,7 +87,7 @@ nnoremap <leader>cj I//<Esc>
 vnoremap <leader>ch c<!--<Esc>gpo--><Esc>
 
 "close xml tags
-inoremap <leader>l </<C-x><C-o><Right>
+inoremap <leader>/ </<C-x><C-o><Right>
 
 "expand tag
 inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
