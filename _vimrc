@@ -64,6 +64,7 @@ nnoremap <F8> :noh<CR>
 "new line in normal mode
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> i<CR><Esc><Right>
+nnoremap <S-Space> i <Esc><Right>
 
 set statusline=%m\ %t
 
