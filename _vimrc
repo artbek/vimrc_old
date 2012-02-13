@@ -130,5 +130,5 @@ nnoremap ci_ F_lvf_hc
 
 nnoremap <leader>i :call Bimg()<CR>
 
-nnoremap <leader>aaa ggVG
-vnoremap <leader>ccc "+y
+nnoremap <leader>v ggVG
+vnoremap <leader>y "+y
