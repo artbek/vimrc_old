@@ -57,11 +57,13 @@ set nolazyredraw
 
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
+vnoremap <C-s> <Esc>:w<CR>
 
 nnoremap <F8> :noh<CR>
 
 "new line in normal mode
 nnoremap <CR> o<Esc>
+nnoremap <S-CR> i<CR><Esc><Right>
 
 set statusline=%m\ %t
 
@@ -83,8 +85,8 @@ vnoremap <C-Up> :m-2<CR>gv
 "let mapleader = ","
 
 "add/remove js comments
-nnoremap <leader>cj I//<Esc>
-vnoremap <leader>ch c<!--<Esc>gpo--><Esc>
+nnoremap <leader>cj _i//<Esc>
+vnoremap <leader>ch c<!--<Esc>gpa--><Esc>
 
 "close xml tags
 inoremap <leader>/ </<C-x><C-o><Right>
@@ -94,10 +96,6 @@ inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
 
 "alt buffer
 nnoremap <leader># :b#<CR>
-
-"indening
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
 
 "move by visual lines (when word wrapped)
 nnoremap j gj
@@ -124,7 +122,7 @@ nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
 
 nnoremap <leader>z zfa{
-nnoremap <leader>v _vg_
+nnoremap <leader>l _vg_
 nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
 
