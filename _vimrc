@@ -134,7 +134,7 @@ nnoremap <leader>v ggVG
 vnoremap <leader>y "+y
 
 "some snippets
-nnoremap <leader>ks f> style=""<Left>
-nnoremap <leader>kc f> class=""<Left>
+nnoremap <leader>ks f>i style=""<Left>
+nnoremap <leader>kc f>i class=""<Left>
 inoremap <leader>ki <img src="" alt="" /><C-O>10h
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width="">
