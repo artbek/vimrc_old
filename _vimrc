@@ -138,3 +138,6 @@ nnoremap <leader>ks f>i style=""<Left>
 nnoremap <leader>kc f>i class=""<Left>
 inoremap <leader>ki <img src="" alt="" /><C-O>10h
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width="">
+nnoremap <leader>klm ciW<a href="mailto:<C-O>p"><C-O>p</a><Esc>
+nnoremap <leader>kl ciW<a href="<C-O>p"><C-O>p</a><Esc>
+
