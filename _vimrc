@@ -94,6 +94,7 @@ inoremap <leader>/ </<C-x><C-o><Right>
 
 "expand tag
 inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
+inoremap <A-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T><CR><CR><Up>
 
 "alt buffer
 nnoremap <leader># :b#<CR>
@@ -122,7 +123,7 @@ set shellslash
 nnoremap <F5> :set ft=html<CR>
 nnoremap <F6> :set ft=php<CR>
 
-nnoremap <leader>z zfa{
+nnoremap <leader>z zfat
 nnoremap <leader>l _vg_
 nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
