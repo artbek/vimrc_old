@@ -1,6 +1,7 @@
 "let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
+set fileencoding=utf8
 
 set guioptions-=T
 "set columns=125
@@ -94,7 +95,7 @@ inoremap <leader>/ </<C-x><C-o><Right>
 
 "expand tag
 inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
-inoremap <A-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T><CR><CR><Up>
+inoremap <S-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T><CR><CR><Up>
 
 "alt buffer
 nnoremap <leader># :b#<CR>
@@ -137,8 +138,14 @@ vnoremap <leader>y "+y
 "some snippets
 nnoremap <leader>ks f>i style=""<Left>
 nnoremap <leader>kc f>i class=""<Left>
+nnoremap <leader>kw f>i width=""<Left>
+nnoremap <leader>kb f>i border=""<Left>
 inoremap <leader>ki <img src="" alt="" /><C-O>10h
-inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h
-nnoremap <leader>klm ciW<a href="mailto:<C-O>p"><C-O>p</a><Esc>
-nnoremap <leader>kl ciW<a href="<C-O>p"><C-O>p</a><Esc>
+inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h<CR><CR><Up>
+nnoremap <leader>klm ciW<a href="mailto:<C-O>P"><C-O>P</a><Esc>
+nnoremap <leader>kl ciW<a href="<C-O>P"><C-O>P</a><Esc>
+
+
+"duplicate alt="" as a title=""
+nnoremap <F7> :set nohls<CR>:s/alt="\(.\{-}\)"/& title="\1"/<CR>:let @/=""<CR>:set hls<CR>
 
