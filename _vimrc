@@ -149,5 +149,7 @@ nnoremap <leader>kl ciW<a href="<C-O>P"><C-O>P</a><Esc>
 "duplicate alt="" as a title=""
 nnoremap <F7> :set nohls<CR>:s/alt="\(.\{-}\)"/& title="\1"/<CR>:let @/=""<CR>:set hls<CR>
 
-"yank atribute with values
+"yank/delete atribute with values
 nnoremap <F3> vawf";y
+nnoremap <F4> vawf";d
+
