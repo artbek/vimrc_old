@@ -154,7 +154,9 @@ nnoremap <F3> vawf";y
 nnoremap <F4> vawf";d
 
 "open in Chrome
-nnoremap <F10> :!start C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe %:p<CR>
+nnoremap <F10>c :!start "C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe" "%:p"<CR> 
+"open in IE
+nnoremap <F10>i :!start "C:\Program Files\Internet Explorer\iexplore.exe" "%:p"<CR> 
 
 "highlight TDs without width
 nnoremap <F2>w /^\(.*width.*\)\@!.*<td.*$<CR>
