@@ -153,3 +153,11 @@ nnoremap <F7> :set nohls<CR>:s/alt="\(.\{-}\)"/& title="\1"/<CR>:let @/=""<CR>:s
 nnoremap <F3> vawf";y
 nnoremap <F4> vawf";d
 
+"open in Chrome
+nnoremap <F10> :!start C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe %:p<CR>
+
+"highlight TDs without width
+nnoremap <F2>w /^\(.*width.*\)\@!.*<td.*$<CR>
+"highlight IMGs without />
+nnoremap <F2>i /^\(.*\/>.*\)\@!.*<img.*$<CR>
+
