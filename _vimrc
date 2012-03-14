@@ -1,4 +1,4 @@
-"let g:loaded_matchparen = 1
+let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
 set fileencoding=utf8
@@ -142,6 +142,7 @@ nnoremap <leader>kw f>i width=""<Left>
 nnoremap <leader>kb f>i border=""<Left>
 inoremap <leader>ki <img src="" alt="" /><C-O>10h
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h<CR><CR><Up>
+imap <leader>ktt <leader>kt tr<S-Space>td<S-Space>
 nnoremap <leader>klm ciW<a href="mailto:<C-O>P"><C-O>P</a><Esc>
 nnoremap <leader>kl ciW<a href="<C-O>P"><C-O>P</a><Esc>
 
