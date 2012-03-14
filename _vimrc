@@ -1,4 +1,4 @@
-let g:loaded_matchparen = 1
+"let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
 set fileencoding=utf8
