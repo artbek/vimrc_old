@@ -164,3 +164,6 @@ nnoremap <F2>w /^\(.*width.*\)\@!.*<td.*$<CR>
 "highlight IMGs without />
 nnoremap <F2>i /^\(.*\/>.*\)\@!.*<img.*$<CR>
 
+"remove trailing whitespace
+nnoremap <leader>e :%s/\s\+$//<CR>
+
