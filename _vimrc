@@ -143,8 +143,8 @@ nnoremap <leader>kb f>i border=""<Left>
 inoremap <leader>ki <img src="" alt="" /><C-O>10h
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h<CR><CR><Up>
 imap <leader>ktt <leader>kt tr<S-Space>td<S-Space>
-nnoremap <leader>klm ciW<a href="mailto:<C-O>P"><C-O>P</a><Esc>
-nnoremap <leader>kl ciW<a href="<C-O>P"><C-O>P</a><Esc>
+vnoremap <leader>klm c<a href="mailto:<Esc>pa"><Esc>pa</a><Esc>
+vnoremap <leader>kl c<a href="<Esc>pa"><Esc>pa</a><Esc>
 
 
 "duplicate alt="" as a title=""
@@ -166,4 +166,7 @@ nnoremap <F2>i /^\(.*\/>.*\)\@!.*<img.*$<CR>
 
 "remove trailing whitespace
 nnoremap <leader>e :%s/\s\+$//<CR>
+
+"unwrap style
+nnoremap <leader>u :s/[{;]/&\r/g<CR>V%=:noh<CR>
 
