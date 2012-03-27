@@ -149,6 +149,8 @@ vnoremap <leader>kl c<a href="<Esc>pa"><Esc>pa</a><Esc>
 
 "duplicate alt="" as a title=""
 nnoremap <F7> :set nohls<CR>:s/alt="\(.\{-}\)"/& title="\1"/<CR>:let @/=""<CR>:set hls<CR>
+"duplicate alt="" as a title="" FOR ALL IMGs without 'title'
+nnoremap <F7><F7> :g/^\(.*title.*\)\@!.*<img.*$/execute "normal \<F7>"<CR>
 
 "yank/delete atribute with values
 nnoremap <F3> vawf";y
