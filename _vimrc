@@ -15,7 +15,7 @@ if has("unix")
 else
 	set guifont=Consolas
 	set dir=c:\\vimtmp
-endif	
+endif
 
 set showcmd
 set number
@@ -51,7 +51,7 @@ nnoremap <F12> :source $MYVIMRC<CR>
 
 "my plugins
 nnoremap <F1> :call HiTag()<CR>
-nnoremap <F9> :call Bbuf2()<CR>  
+nnoremap <F9> :call Bbuf2()<CR>
 
 set hlsearch
 set nolazyredraw
@@ -60,7 +60,7 @@ nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
 vnoremap <C-s> <Esc>:w<CR>
 
-nnoremap <F8> :noh<CR>
+nnoremap <F8> :noh<CR>:call clearmatches()<CR>
 
 "new line in normal mode
 nnoremap <CR> o<Esc>
@@ -155,9 +155,9 @@ nnoremap <F3> vawf";y
 nnoremap <F4> vawf";d
 
 "open in Chrome
-nnoremap <F10>c :!start "C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe" "%:p"<CR> 
+nnoremap <F10>c :!start "C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe" "%:p"<CR>
 "open in IE
-nnoremap <F10>i :!start "C:\Program Files\Internet Explorer\iexplore.exe" "%:p"<CR> 
+nnoremap <F10>i :!start "C:\Program Files\Internet Explorer\iexplore.exe" "%:p"<CR>
 
 "highlight TDs without width
 nnoremap <F2>w /^\(.*width.*\)\@!.*<td.*$<CR>
@@ -170,3 +170,28 @@ nnoremap <leader>e :%s/\s\+$//<CR>
 "unwrap style
 nnoremap <leader>u :s/[{;]/&\r/g<CR>V%=:noh<CR>
 
+
+"highlight #ABCDEF hex colour
+function! HiCol()
+	call clearmatches()
+
+	" save cursor position
+	let l:saved_cursor_pos = getpos(".")
+
+	" select hex colour and get start/end position
+	execute('normal! viw')
+	let l:start_col = getpos("v")
+	let l:end_col = getpos(".")
+	execute('normal! "qy')
+	let l:selection = @q
+
+	" create new highlight colour and highlight selection
+	execute('highlight ColHi guibg=#' . l:selection)
+	call matchadd("ColHi", "\\%" . l:start_col[1] . "l\\%>" . (l:start_col[2]-1) . "c\\%<" . (l:end_col[2]+1) . "c")
+
+	" restore cursor position
+	call setpos(".", l:saved_cursor_pos)
+
+endfunction
+
+nnoremap <F1> :call HiCol()<CR>
