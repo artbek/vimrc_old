@@ -141,12 +141,14 @@ vnoremap <leader>y "+y
 "- select <...> (va>)
 "- substitute > or /> in visual selection (%V)
 "- remove highlight and - place cursor inside quotes
-nnoremap <leader>ks va>:s/\%V>\\|\%V \/>/ style=""&<CR>:noh<CR>gvf"<Esc>a
+command! -nargs=1 AddAttr :normal! va>:s/\%V>\|\%V \/>/ <args>&<CR>:noh<CR>gvf"<Esc>
 
-nnoremap <leader>kc f>i class=""<Left>
-nnoremap <leader>kw f>i width=""<Left>
-nnoremap <leader>kb f>i border=""<Left>
-inoremap <leader>ki <img src="" alt="" /><C-O>10h
+nnoremap <leader>ks :AddAttr style=""<CR>a
+nnoremap <leader>kc :AddAttr class=""<CR>a
+nnoremap <leader>kw :AddAttr width=""<CR>a
+nnoremap <leader>kb :AddAttr border="0"<CR>a
+
+inoremap <leader>ki <img src="" border="0" alt="" /><C-O>3h
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h<CR><CR><Up>
 imap <leader>ktt <leader>kt tr<S-Space>td<S-Space>
 vnoremap <leader>klm c<a href="mailto:<Esc>pa"><Esc>pa</a><Esc>
