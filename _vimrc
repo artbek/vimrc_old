@@ -136,7 +136,13 @@ nnoremap <leader>v ggVG
 vnoremap <leader>y "+y
 
 "some snippets
-nnoremap <leader>ks f>i style=""<Left>
+"nnoremap <leader>ks f>i style=""<Left> - PROBLEM if tag end in />
+
+"- select <...> (va>)
+"- substitute > or /> in visual selection (%V)
+"- remove highlight and - place cursor inside quotes
+nnoremap <leader>ks va>:s/\%V>\\|\%V \/>/ style=""&<CR>:noh<CR>gvf"<Esc>a
+
 nnoremap <leader>kc f>i class=""<Left>
 nnoremap <leader>kw f>i width=""<Left>
 nnoremap <leader>kb f>i border=""<Left>
