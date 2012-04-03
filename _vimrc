@@ -148,7 +148,7 @@ nnoremap <leader>kc :AddAttr class=""<CR>a
 nnoremap <leader>kw :AddAttr width=""<CR>a
 nnoremap <leader>kb :AddAttr border="0"<CR>a
 
-inoremap <leader>ki <img src="" border="0" alt="" /><C-O>3h
+inoremap <leader>ki <img src="" border="0" alt="" /><Esc>F<f"a
 inoremap <leader>kt <table cellpadding="0" cellspacing="0" border="0" width=""></table><C-O>7h<CR><CR><Up>
 imap <leader>ktt <leader>kt tr<S-Space>td<S-Space>
 vnoremap <leader>klm c<a href="mailto:<Esc>pa"><Esc>pa</a><Esc>
