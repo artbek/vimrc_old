@@ -205,3 +205,26 @@ function! HiCol()
 endfunction
 
 nnoremap <F1> :call HiCol()<CR>
+
+"user complete
+fun! CompleteRestOfSentense(findstart, base)
+	if a:findstart
+		" locate the start of the word
+		let line = getline('.')
+		let start = col('.') - 1
+		while start > 0 && line[start - 1] =~ '\a'
+			let start -= 1
+		endwhile
+		return start
+	else
+		" find matches with "a:base"
+		let res = []
+		normal gg
+		while search(a:base . ".*$", "W") > 0
+			call add(res, matchstr(getline("."), a:base . ".*$"))
+		endwhile
+
+		return res
+	endif
+endfun
+set completefunc=CompleteRestOfSentense
