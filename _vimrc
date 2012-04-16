@@ -3,6 +3,8 @@ filetype plugin indent on
 colorscheme wombat
 set fileencoding=utf8
 
+au BufRead,BufNewFile *.less set ft=css
+
 set guioptions-=T
 "set columns=125
 "set lines=58
