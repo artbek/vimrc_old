@@ -230,3 +230,9 @@ fun! CompleteRestOfSentense(findstart, base)
 	endif
 endfun
 set completefunc=CompleteRestOfSentense
+
+"var_dump()
+inoremap <leader>d var_dump();<LEFT><LEFT>
+vnoremap <leader>d cvar_dump(<Esc>pa);
+
+
