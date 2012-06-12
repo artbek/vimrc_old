@@ -1,19 +1,22 @@
 "let g:loaded_matchparen = 1
 filetype plugin indent on
 colorscheme wombat
+set linespace=3
 set fileencoding=utf8
 
 au BufRead,BufNewFile *.less set ft=css
 
 set guioptions-=T
-"set columns=125
-"set lines=58
-"let g:screen_size_restore_pos = 1
-"let g:screen_size_by_vim_instance = 1
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=b
 
 if has("unix")
 	"linux"
-	set dir=/home/artbek/vimtmp
+	set dir=/home/bart/vimtmp
+	set guifont=Monospace\ 9
 else
 	set guifont=Consolas
 	set dir=c:\\vimtmp
