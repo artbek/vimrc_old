@@ -109,6 +109,8 @@ nnoremap <leader># :b#<CR>
 "move by visual lines (when word wrapped)
 nnoremap j gj
 nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
