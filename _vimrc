@@ -241,4 +241,26 @@ set completefunc=CompleteRestOfSentense
 inoremap <leader>d var_dump();<LEFT><LEFT>
 vnoremap <leader>d cvar_dump(<Esc>pa);
 
+"translate <?= _t() ?>
+vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
+
+"no more dissapearing files
+set nowritebackup
+
+"show syntax errors on .php save
+au! BufWritePost *.php call PhpSyntax()
+
+fun! PhpSyntax()
+	redir => l:php_syntax_output
+	silent execute '!php -l %'
+	redir END
+	let l:sphp = split(l:php_syntax_output, "\n")
+
+	if (l:sphp[1] !~ "No syntax errors detected")
+		for l:line in l:sphp
+			let l:line = substitute(l:line, "\r", "", "")
+			echom l:line
+		endfor
+	endif
+endfun
 
