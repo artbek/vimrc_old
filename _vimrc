@@ -73,7 +73,7 @@ nnoremap <S-CR> i<CR><Esc><Right>
 nnoremap <S-Space> i <Esc><Right>
 
 set laststatus=2
-set statusline=%m\ %t\ %=(%l/%L)\ %P\
+set statusline=%m\ %t\ %=%c\ (%l/%L)\ %P\ 
 
 "paste from clipboard
 inoremap <C-v> <C-r>*
