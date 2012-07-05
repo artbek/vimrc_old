@@ -51,7 +51,7 @@ else
 	nnoremap <F11> :tabnew ~/vimfiles/vimrc/_vimrc<CR>
 endif
 "reload vimrc
-nnoremap <F12> :source $MYVIMRC<CR>
+nnoremap <F12> :source ~/.gvimrc<CR>
 
 
 "my plugins
@@ -257,6 +257,8 @@ fun! PhpSyntax()
 	let l:sphp = split(l:php_syntax_output, "\n")
 
 	if (l:sphp[1] !~ "No syntax errors detected")
+		let l:line_number = split(substitute(l:sphp[1], "\r", "", ""), " ")[-1]
+		execute "normal " . (l:line_number - 1) . "gg"
 		for l:line in l:sphp
 			let l:line = substitute(l:line, "\r", "", "")
 			echom l:line
