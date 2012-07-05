@@ -129,8 +129,8 @@ vnoremap <leader>ul :s/\v(\s*)(.*)/\1<li>\2<\/li>/g<CR>:noh<CR>gvc<ul><Esc>pV']>
 set autochdir
 set shellslash
 
-nnoremap <F5> :set ft=html<CR>
-nnoremap <F6> :set ft=php<CR>
+"nnoremap <F5> :set ft=html<CR>
+"nnoremap <F6> :set ft=php<CR>
 
 nnoremap <leader>z zfat
 nnoremap <leader>l _vg_
