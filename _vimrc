@@ -137,7 +137,7 @@ nnoremap <leader>l _vg_
 nnoremap vi_ F_lvf_h
 nnoremap ci_ F_lvf_hc
 
-nnoremap <leader>i :call Bimg()<CR>
+nnoremap <leader>im :call Bimg()<CR>
 
 "copy/paste to/from clipboard
 nnoremap <leader>v ggVG
@@ -241,6 +241,9 @@ set completefunc=CompleteRestOfSentense
 inoremap <leader>p var_dump();<LEFT><LEFT>
 vnoremap <leader>p cvar_dump(<Esc>pa);
 nnoremap <leader>p viwohyOvar_dump(<Esc>pa); die;
+
+"<?= ?>
+inoremap <leader>i <?= ?><LEFT><LEFT><LEFT>
 
 "translate <?= _t() ?>
 vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
