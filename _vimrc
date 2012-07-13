@@ -238,8 +238,9 @@ endfun
 set completefunc=CompleteRestOfSentense
 
 "var_dump()
-inoremap <leader>d var_dump();<LEFT><LEFT>
-vnoremap <leader>d cvar_dump(<Esc>pa);
+inoremap <leader>p var_dump();<LEFT><LEFT>
+vnoremap <leader>p cvar_dump(<Esc>pa);
+nnoremap <leader>p viwohyOvar_dump(<Esc>pa); die;
 
 "translate <?= _t() ?>
 vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
@@ -248,7 +249,7 @@ vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
 set nowritebackup
 
 "show syntax errors on .php save
-au! BufWritePost *.php call PhpSyntax()
+"au! BufWritePost *.php call PhpSyntax()
 
 fun! PhpSyntax()
 	redir => l:php_syntax_output
