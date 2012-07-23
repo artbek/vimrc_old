@@ -253,16 +253,16 @@ vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
 set nowritebackup
 
 "show syntax errors on .php save
-"au! BufWritePost *.php call PhpSyntax()
+au! BufWritePost *.php call PhpSyntax()
 
 fun! PhpSyntax()
 	redir => l:php_syntax_output
-	silent execute '!php -l %'
+	silent execute '!/usr/local/bin/php -l %'
 	redir END
 	let l:sphp = split(l:php_syntax_output, "\n")
 
 	if (l:sphp[1] !~ "No syntax errors detected")
-		let l:line_number = split(substitute(l:sphp[1], "\r", "", ""), " ")[-1]
+		let l:line_number = split(substitute(l:sphp[2], "\r", "", ""), " ")[-1]
 		execute "normal " . (l:line_number - 1) . "gg"
 		for l:line in l:sphp
 			let l:line = substitute(l:line, "\r", "", "")
