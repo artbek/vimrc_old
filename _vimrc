@@ -240,10 +240,11 @@ set completefunc=CompleteRestOfSentense
 "var_dump()
 inoremap <leader>p var_dump();<LEFT><LEFT>
 vnoremap <leader>p cvar_dump(<Esc>pa);
-nnoremap <leader>p viwohyOvar_dump(<Esc>pa); die;
+nnoremap <leader>p viwohyovar_dump(<Esc>pa); die;
+nnoremap <leader>P viwohyOvar_dump(<Esc>pa); die;
 
 "<?= ?>
-inoremap <leader>i <?= ?><LEFT><LEFT><LEFT>
+inoremap <leader>i <?= ?><LEFT><LEFT><LEFT><SPACE>
 
 "translate <?= _t() ?>
 vnoremap <C-t> c<?= _t('<Esc>pa') ?><Esc>
