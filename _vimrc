@@ -73,7 +73,7 @@ nnoremap <S-CR> i<CR><Esc><Right>
 nnoremap <S-Space> i <Esc><Right>
 
 set laststatus=2
-set statusline=%m\ %t\ %=%c\ (%l/%L)\ %P\ 
+set statusline=%m\ %t\ [%{&l:fileformat}]\ %=%c\ (%l/%L)\ %P\ 
 
 "paste from clipboard
 inoremap <C-v> <C-r>*
@@ -257,7 +257,7 @@ au! BufWritePost *.php call PhpSyntax()
 
 fun! PhpSyntax()
 	redir => l:php_syntax_output
-	silent execute '!/usr/local/bin/php -l %'
+	silent execute '!php -l %'
 	redir END
 	let l:sphp = split(l:php_syntax_output, "\n")
 
