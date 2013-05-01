@@ -23,7 +23,7 @@ else
 endif
 
 set showcmd
-set number
+set nonumber
 syntax on
 set hidden
 
@@ -67,13 +67,8 @@ vnoremap <C-s> <Esc>:w<CR>
 
 nnoremap <F8> :noh<CR>:call clearmatches()<CR>
 
-"new line in normal mode
-nnoremap <CR> o<Esc>
-nnoremap <S-CR> i<CR><Esc><Right>
-nnoremap <S-Space> i <Esc><Right>
-
 set laststatus=2
-set statusline=%m\ %t\ [%{&l:fileformat}]\ %=%c\ (%l/%L)\ %P\ 
+set statusline=%m\ %t\ [%{&l:fileformat}]\ %=%l/%L\ (%c)\ %P\ 
 
 "paste from clipboard
 inoremap <C-v> <C-r>*
@@ -101,10 +96,11 @@ inoremap <leader>/ </<C-x><C-o><Right>
 
 "expand tag
 inoremap <C-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T>
-inoremap <S-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T><CR><CR><Up>
+"inoremap <S-Space> <Left><C-o>viwc<<C-r>"></<C-r>"><Left><C-o>T><CR><CR><Up>
 
 "alt buffer
 nnoremap <leader># :b#<CR>
+nnoremap <C-k><C-k> :b#<CR>
 
 "move by visual lines (when word wrapped)
 nnoremap j gj
@@ -172,11 +168,6 @@ nnoremap <F7><F7> :g/^\(.*title.*\)\@!.*<img.*$/execute "normal \<F7>"<CR>
 nnoremap <F3> vawf";y
 nnoremap <F4> vawf";d
 
-"open in Chrome
-nnoremap <F10>c :!start "C:\Users\Bart Nieleszczuk\AppData\Local\Google\Chrome\Application\chrome.exe" "%:p"<CR>
-"open in IE
-nnoremap <F10>i :!start "C:\Program Files\Internet Explorer\iexplore.exe" "%:p"<CR>
-
 "highlight TDs without width
 nnoremap <F2>w /^\(.*width.*\)\@!.*<td.*$<CR>
 "highlight IMGs without />
@@ -214,29 +205,6 @@ endfunction
 
 nnoremap <F1> :call HiCol()<CR>
 
-"user complete
-fun! CompleteRestOfSentense(findstart, base)
-	if a:findstart
-		" locate the start of the word
-		let line = getline('.')
-		let start = col('.') - 1
-		while start > 0 && line[start - 1] =~ '\a'
-			let start -= 1
-		endwhile
-		return start
-	else
-		" find matches with "a:base"
-		let res = []
-		normal gg
-		while search(a:base . ".*$", "W") > 0
-			call add(res, matchstr(getline("."), a:base . ".*$"))
-		endwhile
-
-		return res
-	endif
-endfun
-set completefunc=CompleteRestOfSentense
-
 "var_dump()
 inoremap <leader>p var_dump();<LEFT><LEFT>
 vnoremap <leader>p cvar_dump(<Esc>pa);
@@ -263,11 +231,24 @@ fun! PhpSyntax()
 
 	if (l:sphp[1] !~ "No syntax errors detected")
 		let l:line_number = split(substitute(l:sphp[2], "\r", "", ""), " ")[-1]
-		execute "normal " . (l:line_number - 1) . "gg"
+		execute "normal " . (l:line_number) . "gg"
 		for l:line in l:sphp
 			let l:line = substitute(l:line, "\r", "", "")
 			echom l:line
 		endfor
 	endif
+endfun
+
+
+
+nnoremap <F5> :call PhpArraySpacing()<CR>
+inoremap <F5> <Esc>:call PhpArraySpacing()<CR>
+vnoremap <F5> <Esc>:call PhpArraySpacing()<CR>
+
+fun! PhpArraySpacing()
+	let l:n = 0
+	exe "'<,'>g/=/call search('=') | :if col('.') > l:n | :let l:n = col('.') | :endif"
+	exe "'<,'>s/['\"]\\zs\\s\\+//g"
+	exe "'<,'>g/=/call search('=') | :let x = " . l:n  . " - col('.') | :exe 'normal ' . x . 'i '"
 endfun
 
